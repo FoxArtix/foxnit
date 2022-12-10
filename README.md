@@ -8,7 +8,9 @@ make # to build
 sudo make install # to install
 ```
 ## getting started
-`foxnit -h`
+```bash
+foxnit -h
+```
 ```
 Usage: foxnit [COMMAND] [OPTION] SERVICE_NAME
 Options:
