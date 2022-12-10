@@ -111,6 +111,7 @@ int main(int argc, char **argv) {
 
         if (strcmp(argv[2], "status") == 0) {
             if (argc == 4) {
+                check_root();
                 status_service(argv[3]);
                 return 0;
             }
