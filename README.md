@@ -11,7 +11,10 @@ sudo make install # to install
 ```bash
 foxnit -h
 ```
+
 ```
+Foxnit is a runit wrapper, something similar to systemctl or rc-update, etc.
+
 Usage: foxnit [COMMAND] [OPTION] SERVICE_NAME
 Options:
   -h, --help                    Print this help message.
