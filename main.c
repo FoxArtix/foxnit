@@ -24,7 +24,7 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #include "src/services.h"
 
 void print_help() {
-    printf("Foxnit is a runit wrapper, something similar to systemctl or rc-update, etc.\n\n");
+    printf("Foxnit is a runit wrapper, something similar to systemctl, rc-update, etc.\n\n");
     printf("Usage: foxnit [COMMAND] [OPTION] SERVICE_NAME\n");
     printf("Options:\n");
     printf("  -h, --help\t\t\tPrint this help message.\n");
@@ -58,7 +58,7 @@ int main(int argc, char **argv) {
     }
 
     if (strcmp(argv[1], "-v") == 0 || strcmp(argv[1], "--version") == 0) {
-        printf("Foxnit is a runit wrapper, something similar to systemctl or rc-update, etc.\n\n");
+        printf("Foxnit is a runit wrapper, something similar to systemctl, rc-update, etc.\n\n");
         printf("Foxnit version 0.1.0\n");
         return 0;
     }

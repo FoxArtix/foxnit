@@ -1,6 +1,6 @@
 # foxnit
 
-Foxnit is a runit wrapper, something similar to systemctl or rc-update, etc. 
+Foxnit is a runit wrapper, something similar to systemctl, rc-update, etc. 
 
 # Installing
 ```bash
@@ -13,7 +13,7 @@ foxnit -h
 ```
 
 ```
-Foxnit is a runit wrapper, something similar to systemctl or rc-update, etc.
+Foxnit is a runit wrapper, something similar to systemctl, rc-update, etc.
 
 Usage: foxnit [COMMAND] [OPTION] SERVICE_NAME
 Options:
@@ -23,7 +23,7 @@ Options:
 Usage:
   foxnit services               List all services.
   foxnit services register      Register and run a service.
-  foxnit services unregister    Unregister and stop service.
+  foxnit services unregister    Unregister and stop a service.
   foxnit services start         Start a service.
   foxnit services stop          Stop a service.
   foxnit services restart       Restart a service.
