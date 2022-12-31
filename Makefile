@@ -19,7 +19,7 @@ CFLAGS = -Wall -Wextra -g
 
 all:
 	$(MAKE) -C src all
-	$(CC) $(CFLAGS) -o foxnit main.c -Lsrc -lfoxnit
+	$(CC) $(CFLAGS) -o foxnit main.c -L. -lfoxnit
 
 clean:
 	$(MAKE) -C src clean

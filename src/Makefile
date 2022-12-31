@@ -22,7 +22,7 @@ OBJ = services.o
 	$(CC) -c -o $@ $< $(CFLAGS)
 
 all: $(OBJ)
-	ar rcs libfoxnit.a $(OBJ)
+	ar rcs ../libfoxnit.a $(OBJ)
 
 clean:
 	rm -f *.o
