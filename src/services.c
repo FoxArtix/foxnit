@@ -30,10 +30,10 @@ static int sort_algo(const void *a, const void *b) {
     return strcmp(*(const char**) a, *(const char**) b);
 }
 
-void list_services() {
-    printf("Listing services\n");
+RunitService* list_services() {
     char **names = (char**) malloc(sizeof(char*));
     int count = 0;
+    int real_count = 0;
 
     DIR *dir;
     struct dirent *ent;
@@ -50,6 +50,8 @@ void list_services() {
         }
         closedir(dir);
     }
+
+    real_count = count;
     
     dir = opendir(runningServicesPATH);
     if (dir) {
@@ -66,21 +68,22 @@ void list_services() {
     }
     
     qsort(names, count, sizeof(char*), sort_algo);
-    printf("Found %d services\n================\n", count);
-    for (int i = 0; i < count; i++) {
+    RunitService *services = malloc(sizeof(RunitService) * (real_count + 1));
+    for (int i = 0, j = 0; i < count && j < real_count; i++, j++) {
         if (i + 1 < count) {
             if (!strcmp(names[i], names[i + 1])) {
-                printf("%s (running)\n", names[i]);
-                free(names[i]);
+                services[j].name = names[i];
+                services[j].running = 1;
                 i++;
                 continue;
             }
         }
-        printf("%s\n", names[i]);
-        free(names[i]);
+        services[j].name = names[i];
+        services[j].running = 0;
     }
-    free(names);
-    printf("================\n");
+    memset(&services[real_count], 0, sizeof(RunitService));
+
+    return services;
 }
 
 void register_service(char *name) {

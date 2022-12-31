@@ -46,6 +46,14 @@ void check_root() {
     }
 }
 
+short nullcheck(void *ptr, int size) {
+    unsigned char *ptr2 = (unsigned char*) ptr;
+    for (int i = 0; i < size; i++) {
+        if (ptr2[i]) return 0;
+    }
+    return 1;
+}
+
 int main(int argc, char **argv) {
     if (argc == 1) {
         printf("No arguments provided. Use -h or --help for help.\n");
@@ -65,7 +73,16 @@ int main(int argc, char **argv) {
 
     if (strcmp(argv[1], "services") == 0) {
         if (argc == 2) {
-            list_services();
+            int i;
+            printf("Listing services\n");
+            RunitService *s = list_services();
+            for (i = 0; !nullcheck(&s[i], sizeof(RunitService)); i++);
+            printf("Found %d services\n================\n", i);
+            for (int j = 0; j < i; j++) {
+                printf("%s %s\n", s[j].name, s[j].running ? "(running)" : "");
+                free(s[j].name);
+            }
+            printf("================\n");
             return 0;
         }
 

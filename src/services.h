@@ -19,7 +19,12 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #ifndef HELPER_H
 #define HELPER_H
 
-void list_services();
+typedef struct {
+    char *name;
+    short running;
+} RunitService;
+
+RunitService* list_services();
 void register_service(char *name);
 void unregister_service(char *name);
 void start_service(char *name);
