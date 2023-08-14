@@ -14,7 +14,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
-PREFIX ?= /usr
+PREFIX ?= /usr/local
 
 CC = gcc
 CFLAGS = -Wall -Wextra -g
@@ -28,8 +28,8 @@ clean:
 	rm foxnit
 
 install:
-	mkdir -p $(PREFIX)/local/bin
-	install -m 755 foxnit $(PREFIX)/local/bin
+	mkdir -p $(PREFIX)/bin
+	install -m 755 foxnit $(PREFIX)/bin
 	rm foxnit
 	rm libfoxnit.a
 
