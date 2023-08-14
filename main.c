@@ -56,7 +56,7 @@ short nullcheck(void *ptr, int size) {
 
 int main(int argc, char **argv) {
     if (argc == 1) {
-        printf("No arguments provided. Use -h or --help for help.\n");
+        print_help();
         return 1;
     }
 

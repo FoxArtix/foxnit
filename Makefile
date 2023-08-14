@@ -14,6 +14,8 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
+PREFIX ?= /usr
+
 CC = gcc
 CFLAGS = -Wall -Wextra -g
 
@@ -23,10 +25,13 @@ all:
 
 clean:
 	$(MAKE) -C src clean
-	rm -f foxnit
+	rm foxnit
 
-install: all
-	install -m 755 foxnit /usr/local/bin
+install:
+	mkdir -p $(PREFIX)/local/bin
+	install -m 755 foxnit $(PREFIX)/local/bin
+	rm foxnit
+	rm libfoxnit.a
 
-uninstall: all
-	rm -f /usr/local/bin/foxnit
+uninstall:
+	rm $(PREFIX)/local/bin/foxnit
